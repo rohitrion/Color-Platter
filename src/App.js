@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import ColorPalette from './Component/ColorPalette';
 
-function App() {
+const App = () => {
+  const [color, setcolor] = useState()
+  const handleColorSelect = (color) => {
+    console.log('Selected color:', color);
+    setcolor(color)
+  };
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='center' >
+
+      <b>Selected color:{color}</b>
+      <ColorPalette onSelectColor={handleColorSelect} />
     </div>
   );
-}
+};
 
 export default App;
